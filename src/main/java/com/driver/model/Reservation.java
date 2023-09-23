@@ -25,11 +25,11 @@ public class Reservation {
     @OneToOne
     private Payment payment;
 
-    public Integer getNumberOfHour() {
+    public Integer getNumberOfHours() {
         return numberOfHour;
     }
 
-    public void setNumberOfHour(Integer numberOfHour) {
+    public void setNumberOfHours(Integer numberOfHour) {
         this.numberOfHour = numberOfHour;
     }
 

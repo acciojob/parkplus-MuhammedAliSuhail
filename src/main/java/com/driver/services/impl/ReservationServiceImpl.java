@@ -36,7 +36,7 @@ public class ReservationServiceImpl implements ReservationService {
             Collections.sort(spotlist,(a,b)->a.getPricePerHour().compareTo(b.getPricePerHour()));
             User user1=user.get();
             reservation.setUser(user1);
-            reservation.setNumberOfHour(timeInHours);
+            reservation.setNumberOfHours(timeInHours);
             for(Spot spot:spotlist){
                 if(numberOfWheels==4) {
                     if (spot.getOccupied() && spot.getSpotType()==SpotType.FOUR_WHEELER) {
