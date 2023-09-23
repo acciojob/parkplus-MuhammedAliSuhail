@@ -23,7 +23,7 @@ public class Spot {
     @JoinColumn
     @JsonIgnore
     private ParkingLot parkingLot;
-    @com.fasterxml.jackson.annotation.JsonIgnore
+    @JsonIgnore
     @OneToMany(mappedBy = "spot",cascade = CascadeType.ALL)
     private List<Reservation> reservationList=new LinkedList<>();
 
