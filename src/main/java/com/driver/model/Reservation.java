@@ -33,6 +33,10 @@ public class Reservation {
         this.numberOfHour = numberOfHour;
     }
 
+    public Integer getNumberOfHour() {
+        return numberOfHour;
+    }
+
     public User getUser() {
         return user;
     }
