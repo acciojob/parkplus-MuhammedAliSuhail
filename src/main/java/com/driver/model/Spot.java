@@ -52,7 +52,7 @@ public class Spot {
     }
 
     public boolean isOccupied() {
-        return occupied;
+        return !occupied;
     }
 
     public void setOccupied(boolean occupied) {
