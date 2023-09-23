@@ -33,7 +33,7 @@ public class ParkingLotController {
             Spot newSpot=parkingLotService.addSpot(parkingLotId,numberOfWheels,pricePerHour);
             return new ResponseEntity<>(newSpot, HttpStatus.CREATED);
         }catch (Exception e){
-            System.out.println(e);
+           // System.out.println(e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
@@ -54,7 +54,7 @@ public class ParkingLotController {
             Spot updatedSpot=parkingLotService.updateSpot(parkingLotId,spotId,pricePerHour);
             return new ResponseEntity<>(updatedSpot, HttpStatus.OK);
         }catch (Exception e){
-            System.out.println(e);
+            //System.out.println(e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
