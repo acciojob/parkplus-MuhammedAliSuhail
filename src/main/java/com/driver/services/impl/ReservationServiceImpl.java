@@ -39,19 +39,19 @@ public class ReservationServiceImpl implements ReservationService {
             reservation.setNumberOfHour(timeInHours);
             for(Spot spot:spotlist){
                 if(numberOfWheels==4) {
-                    if (spot.isOccupied() && spot.getSpotType()==SpotType.FOUR_WHEELER) {
+                    if (spot.getOccupied() && spot.getSpotType()==SpotType.FOUR_WHEELER) {
                         spot.setOccupied(true);
                         reservation.setSpot(spot);
                         break;
                     }
                 } else if (numberOfWheels==2) {
-                    if (spot.isOccupied() && spot.getSpotType()==SpotType.TWO_WHEELER) {
+                    if (spot.getOccupied() && spot.getSpotType()==SpotType.TWO_WHEELER) {
                         spot.setOccupied(true);
                         reservation.setSpot(spot);
                         break;
                     }
                 }else{
-                    if (spot.isOccupied() && spot.getSpotType()==SpotType.OTHERS) {
+                    if (spot.getOccupied() && spot.getSpotType()==SpotType.OTHERS) {
                         spot.setOccupied(true);
                         reservation.setSpot(spot);
                         break;
