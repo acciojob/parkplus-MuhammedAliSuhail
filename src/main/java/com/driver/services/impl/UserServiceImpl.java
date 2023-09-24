@@ -39,4 +39,7 @@ public class UserServiceImpl implements UserService {
             User user=new User(name,phoneNumber,password);
             userRepository4.save(user);
     }
+    public void testUser(){
+
+    }
 }
