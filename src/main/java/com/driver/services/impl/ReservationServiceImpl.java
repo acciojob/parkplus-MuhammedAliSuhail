@@ -39,26 +39,28 @@ public class ReservationServiceImpl implements ReservationService {
             reservation.setNumberOfHours(timeInHours);
             for(Spot spot:spotlist){
                 if(numberOfWheels==4) {
-                    if (spot.getOccupied() && spot.getSpotType()==SpotType.FOUR_WHEELER) {
+                    if (!spot.getOccupied() && spot.getSpotType()==SpotType.FOUR_WHEELER) {
                         spot.setOccupied(true);
                         reservation.setSpot(spot);
                         break;
                     }
                 } else if (numberOfWheels==2) {
-                    if (spot.getOccupied() && spot.getSpotType()==SpotType.TWO_WHEELER) {
+                    if (!spot.getOccupied() && spot.getSpotType()==SpotType.TWO_WHEELER) {
                         spot.setOccupied(true);
                         reservation.setSpot(spot);
                         break;
                     }
                 }else{
-                    if (spot.getOccupied() && spot.getSpotType()==SpotType.OTHERS) {
+                    if (!spot.getOccupied() && spot.getSpotType()==SpotType.OTHERS) {
                         spot.setOccupied(true);
                         reservation.setSpot(spot);
                         break;
                     }
                 }
             }
-            if(reservation.getSpot()==null)throw new Exception("Cannot make reservation");
+            Spot spot=reservation.getSpot();
+            if(spot==null)throw new Exception("Cannot make reservation");
+//            System.out.println(spot);
 
 
            Reservation reservation1= reservationRepository3.save(reservation);

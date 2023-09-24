@@ -1,6 +1,8 @@
 package com.driver.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Table
@@ -16,13 +18,16 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private Spot spot;
 
     @OneToOne
+    @JsonIgnore
     private Payment payment;
 
     public Integer getNumberOfHours() {

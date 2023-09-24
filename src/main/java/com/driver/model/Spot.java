@@ -1,7 +1,9 @@
 package com.driver.model;
 
 
-import net.minidev.json.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -17,6 +19,7 @@ public class Spot {
     private Integer id;
     private SpotType spotType;
     private Integer pricePerHour;
+   // @Value(value = "false")
     private boolean occupied;
 
     @ManyToOne
@@ -52,7 +55,7 @@ public class Spot {
     }
 
     public boolean getOccupied() {
-        return !occupied;
+        return occupied;
     }
 
     public void setOccupied(boolean occupied) {

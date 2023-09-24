@@ -16,6 +16,7 @@ public class Payment {
     private PaymentMode paymentMode;
     @OneToOne
     @JoinColumn
+    @JsonIgnore
     private Reservation reservation;
 
     public Integer getId() {

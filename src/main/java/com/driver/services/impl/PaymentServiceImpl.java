@@ -1,9 +1,6 @@
 package com.driver.services.impl;
 
-import com.driver.model.Payment;
-import com.driver.model.PaymentMode;
-import com.driver.model.Reservation;
-import com.driver.model.SpotType;
+import com.driver.model.*;
 import com.driver.repository.PaymentRepository;
 import com.driver.repository.ReservationRepository;
 import com.driver.services.PaymentService;
@@ -34,6 +31,9 @@ public class PaymentServiceImpl implements PaymentService {
             }else{
                 if(mode.equals("CARD") || mode.equals("CASH") || mode.equals("UPI")){
                     Payment payment=new Payment();
+                    Spot spot=reservation1.getSpot();
+                    spot.setOccupied(false);
+                    reservation1.setPayment(payment);
                     payment.setReservation(reservation1);
                     if(mode.equals("CARD")){
                         payment.setPaymentMode(PaymentMode.CARD);
@@ -43,6 +43,7 @@ public class PaymentServiceImpl implements PaymentService {
                         payment.setPaymentMode(PaymentMode.UPI);
                     }
                     payment.setPaymentCompleted(true);
+
 
                     Payment payment1=paymentRepository2.save(payment);
                     return payment1;
