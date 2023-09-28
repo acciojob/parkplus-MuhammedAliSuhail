@@ -23,8 +23,9 @@ public class PaymentController {
            Payment payment= paymentService.pay(reservationId,amountSent,mode);
            return payment;
         }catch (Exception e){
-            //throw new Exception(e);
-            return null;
+
+           throw new Exception(e);
+
         }
 
     }
